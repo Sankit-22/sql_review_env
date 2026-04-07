@@ -1,0 +1,51 @@
+spec_version: 1
+name: sql_review_env
+type: space
+runtime: fastapi
+app: server.app:app
+port: 8000
+
+metadata:
+  title: SQL Review Environment
+  description: >
+    A real-world OpenEnv environment where an AI agent must review and fix
+    broken SQL queries. Tasks range from simple syntax errors to complex
+    security vulnerabilities and logic bugs.
+  difficulty: easy-to-hard
+  domain: data-engineering
+  tags:
+    - sql
+    - code-review
+    - security
+    - real-world
+
+tasks:
+  - id: easy_001
+    description: Fix syntax errors in a broken SELECT query
+    difficulty: easy
+    min_score: 0.0
+    max_score: 1.0
+
+  - id: medium_001
+    description: Fix missing GROUP BY clause in an aggregation query
+    difficulty: medium
+    min_score: 0.0
+    max_score: 1.0
+
+  - id: hard_001
+    description: Fix SQL injection vulnerability and logic error
+    difficulty: hard
+    min_score: 0.0
+    max_score: 1.0
+
+observation_space:
+  task_id: string
+  task_description: string
+  broken_sql: string
+  feedback: string
+  score: float
+  done: boolean
+  expected_output: string
+
+action_space:
+  sql: string
